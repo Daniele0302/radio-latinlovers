@@ -3,538 +3,121 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Radio LatinLovers — La radio della community latina in Italia · 100% Reggaeton & Música Latina</title>
-  <meta name="description" content="Radio LatinLovers: web radio dedicata al reggaeton e alla musica latina per la community latina in Italia. Progetto in fase di lancio — palinsesto, eventi e contenuti in arrivo." />
+  <title>Radio LatinLovers — La radio della community latina in Italia</title>
+  <meta name="description" content="Radio LatinLovers: web radio dedicata al reggaeton e alla musica latina per la community latina in Italia. Progetto in fase di lancio." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;0,900;1,800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23e10f1b'/%3E%3Ctext x='16' y='23' font-family='Arial' font-size='17' font-weight='bold' fill='white' text-anchor='middle'%3ELL%3C/text%3E%3C/svg%3E" />
 </head>
-<body>
+<body data-page="home">
 
-  <!-- Banner anteprima: rende esplicito che il sito è dimostrativo / progetto in avvio -->
-  <div class="preview-banner" style="background:linear-gradient(100deg,#2a0f2a,#1a0c2e);border-bottom:1px solid var(--border);color:var(--gold);text-align:center;padding:9px 16px;font-size:.85rem;line-height:1.4;">
-    🚧 <strong>Sito dimostrativo · progetto in fase di lancio.</strong>
-    Palinsesto, programmi, conduttori, podcast, blog ed eventi sono <strong>esempi</strong>. Il player riproduce uno stream reggaeton di anteprima.
-  </div>
-
-  <!-- ===================== HEADER ===================== -->
-  <header class="site-header" id="top">
-    <div class="container header-inner">
-      <a href="#top" class="logo" aria-label="Radio LatinLovers home">
-        <span class="logo-mark">
-          <span class="logo-dot"></span>
-        </span>
-        <span class="logo-text">
-          <span class="logo-radio">RADIO</span>
-          <span class="logo-name">LATIN<span class="logo-accent">LOVERS</span></span>
-        </span>
-      </a>
-
-      <nav class="main-nav" id="mainNav" aria-label="Navigazione principale">
-        <a href="#diretta">Radio</a>
-        <a href="#palinsesto">Palinsesto</a>
-        <a href="#programmi">Programmi</a>
-        <a href="#podcast">Podcast</a>
-        <a href="#blog">Blog</a>
-        <a href="#eventi">Eventi</a>
-        <a href="#chi-siamo">Chi siamo</a>
-      </nav>
-
-      <div class="header-right">
-        <!-- TODO (prima del lancio pubblico): collegare gli account social reali (TikTok, Instagram, YouTube, Spotify). Ora i link puntano a "#". -->
-        <div class="social-icons" aria-label="Social">
-          <a href="#" aria-label="TikTok" title="TikTok"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M16.5 3c.3 2.1 1.6 3.7 3.7 4v2.6c-1.4 0-2.7-.4-3.9-1.1v6.2a5.7 5.7 0 1 1-5.7-5.7c.3 0 .6 0 .9.1v2.7a3 3 0 1 0 2.1 2.9V3h2.9Z"/></svg></a>
-          <a href="#" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.5.4 1.1.4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.5.2-1.1.4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.5-.4-1.1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.5-.2 1.1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2Zm0 1.8c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.3.8-.4.4-.6.8-.8 1.3-.2.4-.3 1-.4 2.1C2.6 8.5 2.6 8.9 2.6 12s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.3.4.4.8.6 1.3.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.3-.8.4-.4.6-.8.8-1.3.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.4-.9-.8-1.3-.4-.4-.8-.6-1.3-.8-.4-.2-1-.3-2.1-.4-1.2-.1-1.6-.1-4.7-.1Zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8Zm0 8a3.1 3.1 0 1 0 0-6.2 3.1 3.1 0 0 0 0 6.2Zm6.3-8.2a1.1 1.1 0 1 1-2.3 0 1.1 1.1 0 0 1 2.3 0Z"/></svg></a>
-          <a href="#" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M23 7.5s-.2-1.6-.9-2.3c-.9-.9-1.8-.9-2.3-1C16.6 4 12 4 12 4s-4.6 0-7.8.2c-.5.1-1.4.1-2.3 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.3C.8 14.5 1 16.4 1 16.4s.2 1.6.9 2.3c.9.9 2 .9 2.5 1 1.8.2 7.6.2 7.6.2s4.6 0 7.8-.2c.5-.1 1.4-.1 2.3-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.3c0-1.9-.2-3.8-.2-3.8ZM9.8 15V9l5 3-5 3Z"/></svg></a>
-          <a href="#" aria-label="Spotify" title="Spotify"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm4.6 14.4c-.2.3-.6.4-.9.2-2.4-1.5-5.5-1.8-9.1-1-.4.1-.7-.2-.8-.5-.1-.4.2-.7.5-.8 4-.9 7.4-.5 10.1 1.1.4.2.5.6.2 1Zm1.2-2.7c-.2.4-.7.5-1.1.3-2.8-1.7-7-2.2-10.3-1.2-.4.1-.9-.1-1-.6-.1-.4.1-.9.6-1 3.8-1.1 8.4-.6 11.6 1.4.3.2.5.7.2 1.1Zm.1-2.8C14.6 8.9 9.2 8.7 6 9.7c-.5.2-1.1-.1-1.2-.7-.2-.5.1-1.1.7-1.2 3.7-1.1 9.7-.9 13.5 1.4.5.3.7.9.4 1.4-.3.4-.9.6-1.4.3Z"/></svg></a>
-        </div>
-        <a href="#diretta" class="btn btn-live" id="headerListenBtn">
-          <span class="live-dot"></span> Ascolta
-        </a>
-        <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-
-    <!-- on-air ticker bar -->
-    <div class="onair-bar">
-      <div class="container onair-inner">
-        <span class="onair-label"><span class="live-dot"></span> IN ONDA ORA</span>
-        <span class="onair-show" id="tickerShow">Caricamento…</span>
-        <span class="onair-sep">·</span>
-        <span class="onair-track" id="tickerTrack">♪ Sintonizzati sul perreo</span>
-      </div>
-    </div>
-  </header>
-
-  <!-- ===================== HERO + LIVE PLAYER ===================== -->
-  <section class="hero" id="diretta">
-    <div class="hero-bg"></div>
-    <div class="container hero-grid">
-      <div class="hero-copy">
-        <p class="eyebrow">🇩🇴🇨🇴🇵🇷 La radio della community latina in Italia</p>
-        <h1>100% <span class="grad-text">Reggaetón</span><br />&amp; Música Latina</h1>
-        <p class="hero-sub">
-          La web radio dedicata al reggaeton e al sound latino.
-          Stiamo per partire con diretta 24/7, palinsesto curato ed eventi nei locali,
-          per la community più caliente d'Italia. <strong>Dale, súbele al volumen.</strong>
-        </p>
-        <div class="hero-cta">
-          <button class="btn btn-primary btn-lg" id="heroPlayBtn">
-            <span class="btn-icon" id="heroPlayIcon">▶</span> Ascolta la diretta
-          </button>
-          <a href="#palinsesto" class="btn btn-ghost btn-lg">Scopri il palinsesto</a>
-        </div>
-        <div class="hero-stats">
-          <div><strong>~500k</strong><span>community latina in Italia (stima)</span></div>
-          <div><strong>Presto</strong><span>diretta 24/7 in arrivo</span></div>
-          <div><strong>100%</strong><span>reggaeton &amp; latino</span></div>
+  <!-- ===================== HERO SLIDER ===================== -->
+  <section class="hero">
+    <div class="hero-track">
+      <div class="hero-slide active" style="--s1:#3a1416;--s2:#0c0c0d">
+        <div class="bg"></div>
+        <div class="watermark">PERREO</div>
+        <div class="hero-content">
+          <div class="hero-tags"><span>Blog</span><span>Featured</span><span>Highlights</span></div>
+          <h1>Il reggaeton è il sound dell'estate</h1>
+          <p>Dal perreo alla bachata: come la musica latina è diventata protagonista delle estati italiane, e perché la community è pronta per una radio tutta sua.</p>
+          <a href="blog.html" class="btn btn-red">Leggi l'articolo</a>
         </div>
       </div>
 
-      <!-- LIVE PLAYER CARD -->
-      <div class="player-card" id="playerCard">
-        <div class="player-top">
-          <span class="player-live"><span class="live-dot"></span> ANTEPRIMA · STREAM DEMO</span>
-          <span class="player-listeners">🎧 anteprima</span>
+      <div class="hero-slide" style="--s1:#1a1a2e;--s2:#0c0c0d">
+        <div class="bg"></div>
+        <div class="watermark">RITMO</div>
+        <div class="hero-content">
+          <div class="hero-tags"><span>Programmi</span><span>Live</span></div>
+          <h1>La Hora del Perreo, tutti i giorni</h1>
+          <p>Il programma più caliente del palinsesto: solo i beat del momento, mixati senza pausa. Scopri quando va in onda e chi lo conduce.</p>
+          <a href="palinsesto.html" class="btn btn-red">Vai al palinsesto</a>
         </div>
+      </div>
 
-        <div class="player-art" id="playerArt">
-          <div class="player-art-glow"></div>
-          <div class="equalizer" id="equalizer" aria-hidden="true">
-            <span></span><span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span><span></span>
-          </div>
-          <div class="player-art-emoji">🔥</div>
+      <div class="hero-slide" style="--s1:#2a1a10;--s2:#0c0c0d">
+        <div class="bg"></div>
+        <div class="watermark">LATINO</div>
+        <div class="hero-content">
+          <div class="hero-tags"><span>Classifica</span><span>Community</span></div>
+          <h1>Top 20 Latino, votata da voi</h1>
+          <p>Ogni settimana la classifica delle hit più suonate, decisa dalla community sui social. La tua canzone può arrivare in cima.</p>
+          <a href="programmi.html" class="btn btn-red">Scopri i programmi</a>
         </div>
+      </div>
 
-        <div class="player-meta">
-          <p class="player-show" id="playerShow">Despertar Latino</p>
-          <p class="player-host" id="playerHost">con Camila Restrepo</p>
+      <div class="hero-slide" style="--s1:#101a1a;--s2:#0c0c0d">
+        <div class="bg"></div>
+        <div class="watermark">FIESTA</div>
+        <div class="hero-content">
+          <div class="hero-tags"><span>Eventi</span><span>In arrivo</span></div>
+          <h1>Le notti LatinLovers arrivano nei locali</h1>
+          <p>Stiamo costruendo le serate della radio, in collaborazione con i locali latini d'Italia. Resta sintonizzato per le prime date.</p>
+          <a href="contatta.html" class="btn btn-red">Diventa partner</a>
         </div>
-
-        <div class="now-playing">
-          <span class="np-label">♪ Esempio in rotazione</span>
-          <div class="np-marquee"><span id="nowPlaying">Bad Bunny — Tití Me Preguntó</span></div>
-        </div>
-
-        <div class="player-controls">
-          <button class="play-btn" id="mainPlayBtn" aria-label="Play/Pausa">
-            <span id="mainPlayIcon">▶</span>
-          </button>
-          <div class="volume-wrap">
-            <button class="vol-btn" id="muteBtn" aria-label="Muta">🔊</button>
-            <input type="range" id="volume" min="0" max="100" value="80" aria-label="Volume" />
-          </div>
-        </div>
-
-        <p class="player-status" id="playerStatus">Premi play per sintonizzarti</p>
       </div>
     </div>
 
-    <!-- platforms strip -->
-    <div class="container platforms">
-      <span>Ascoltaci ovunque:</span>
-      <a href="#">🌐 Sito &amp; App</a>
-      <a href="#">🎵 TikTok</a>
-      <a href="#">📸 Instagram</a>
-      <a href="#">▶️ YouTube</a>
-      <a href="#">🟢 Spotify</a>
-    </div>
+    <button class="hero-arrow prev" aria-label="Precedente"></button>
+    <button class="hero-arrow next" aria-label="Successivo"></button>
+    <div class="hero-dots"></div>
   </section>
 
-  <!-- ===================== PALINSESTO ===================== -->
-  <section class="section" id="palinsesto">
+  <!-- ===================== DAL BLOG ===================== -->
+  <section class="section">
     <div class="container">
       <div class="section-head">
-        <p class="section-eyebrow">La programmazione</p>
-        <h2>Palinsesto della settimana</h2>
-        <p class="section-lead">Ogni giorno il sound che ti accende: dal risveglio latino del mattino al perreo della notte. Nel palinsesto di esempio è evidenziato il programma <span class="hl">corrispondente all'ora attuale</span>.</p>
+        <h2>Dal blog</h2>
+        <a href="blog.html" class="more">Tutti gli articoli</a>
       </div>
-
-      <div class="day-tabs" id="dayTabs" role="tablist"></div>
-      <div class="schedule" id="scheduleList"></div>
+      <div class="grid grid-3">
+        <a class="card" href="blog.html">
+          <div class="card-cover" style="--c1:#3a1416;--c2:#0c0c0d"><span class="cat">Editoriale</span><span class="wm">Estate Latina</span></div>
+          <div class="card-body"><div class="meta">Editoriale</div><h3>Il reggaeton è il sound dell'estate</h3><p>Come la musica latina è diventata protagonista delle estati italiane.</p></div>
+        </a>
+        <a class="card" href="blog.html">
+          <div class="card-cover" style="--c1:#1a1a2e;--c2:#0c0c0d"><span class="cat">Classifiche</span><span class="wm">Top Estate</span></div>
+          <div class="card-body"><div class="meta">Classifiche</div><h3>Le canzoni reggaeton perfette per l'estate</h3><p>La nostra selezione dei brani che faranno ballare la stagione.</p></div>
+        </a>
+        <a class="card" href="blog.html">
+          <div class="card-cover" style="--c1:#2a1a10;--c2:#0c0c0d"><span class="cat">Musica</span><span class="wm">Bachata</span></div>
+          <div class="card-body"><div class="meta">Musica</div><h3>Bachata sensual: la guida ai brani per ballare</h3><p>Dai grandi classici alle hit di oggi, per ogni serata.</p></div>
+        </a>
+      </div>
     </div>
   </section>
 
   <!-- ===================== PROGRAMMI ===================== -->
-  <section class="section section-alt" id="programmi">
+  <section class="section alt">
     <div class="container">
       <div class="section-head">
-        <p class="section-eyebrow">I nostri show</p>
-        <h2>Programmi di punta</h2>
-        <p class="section-lead">Voci, DJ e selecta che fanno ballare la community ogni settimana.</p>
+        <h2>Programmi</h2>
+        <a href="programmi.html" class="more">Tutti i programmi</a>
       </div>
-
-      <div class="shows-grid">
-        <article class="show-card" style="--c1:#ff2e74;--c2:#ff7a2f">
-          <div class="show-cover"><span>🌅</span></div>
-          <div class="show-body">
-            <span class="tag">Morning</span>
-            <h3>Despertar Latino</h3>
-            <p class="show-host">con Camila Restrepo</p>
-            <p>Sveglia con energía: i tormentoni latini, le news della scena e tanto buon umore per iniziare la giornata.</p>
-          </div>
-        </article>
-
-        <article class="show-card" style="--c1:#ff2e74;--c2:#b026ff">
-          <div class="show-cover"><span>🔥</span></div>
-          <div class="show-body">
-            <span class="tag">Reggaeton</span>
-            <h3>La Hora del Perreo</h3>
-            <p class="show-host">con La Catrina</p>
-            <p>Solo perreo intenso. I beat più caldi del momento, mixati senza pausa. Que suene fuerte.</p>
-          </div>
-        </article>
-
-        <article class="show-card" style="--c1:#1fe0c4;--c2:#1f8cff">
-          <div class="show-cover"><span>📊</span></div>
-          <div class="show-body">
-            <span class="tag">Classifica</span>
-            <h3>Top 20 Latino</h3>
-            <p class="show-host">con Andrés</p>
-            <p>La classifica delle 20 hit più suonate della settimana, votata dalla community sui social.</p>
-          </div>
-        </article>
-
-        <article class="show-card" style="--c1:#ff5c8a;--c2:#ff9e2c">
-          <div class="show-cover"><span>💃</span></div>
-          <div class="show-body">
-            <span class="tag">Bachata</span>
-            <h3>Bachata &amp; Corazón</h3>
-            <p class="show-host">con Valentina</p>
-            <p>Bachata sensual e baladas per le serate romantiche. Dedica una canzone a chi ami.</p>
-          </div>
-        </article>
-
-        <article class="show-card" style="--c1:#b026ff;--c2:#ff2e74">
-          <div class="show-cover"><span>🪩</span></div>
-          <div class="show-body">
-            <span class="tag">Club</span>
-            <h3>Noche de Fiesta</h3>
-            <p class="show-host">con DJ Rumba</p>
-            <p>Il club arriva a casa tua: set dal vivo, ospiti e remix esclusivi per scaldare la notte.</p>
-          </div>
-        </article>
-
-        <article class="show-card" style="--c1:#ffcb3d;--c2:#ff5c8a">
-          <div class="show-cover"><span>🎺</span></div>
-          <div class="show-body">
-            <span class="tag">Salsa</span>
-            <h3>Salsa &amp; Timba</h3>
-            <p class="show-host">con El Sonero</p>
-            <p>Le radici del sound latino: salsa, timba e cumbia che fanno muovere i piedi da soli.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== PODCAST ===================== -->
-  <section class="section" id="podcast">
-    <div class="container">
-      <div class="section-head">
-        <p class="section-eyebrow">On demand</p>
-        <h2>Podcast LatinLovers</h2>
-        <p class="section-lead">Le storie, la cultura e i protagonisti della scena latina. Ascolta quando vuoi.</p>
-      </div>
-
-      <div class="podcast-grid">
-        <article class="podcast-card">
-          <div class="pod-cover" style="--c1:#ff2e74;--c2:#b026ff"><span>🎧</span><span class="pod-play">▶</span></div>
-          <div class="pod-body">
-            <span class="pod-series">El Detrás de la Música · Ep. 12</span>
-            <h3>Come nasce il reggaeton: da Panama a Porto Rico</h3>
-            <p>32 min · La storia del genere che ha conquistato il mondo, raccontata dalle origini dembow.</p>
-          </div>
-        </article>
-
-        <article class="podcast-card">
-          <div class="pod-cover" style="--c1:#1fe0c4;--c2:#1f8cff"><span>🎙️</span><span class="pod-play">▶</span></div>
-          <div class="pod-body">
-            <span class="pod-series">Charla Latina · Ep. 8</span>
-            <h3>Essere latino in Italia: identità, musica e radici</h3>
-            <p>45 min · Tre voci della community raccontano cosa significa crescere tra due culture.</p>
-          </div>
-        </article>
-
-        <article class="podcast-card">
-          <div class="pod-cover" style="--c1:#ff7a2f;--c2:#ffcb3d"><span>🎛️</span><span class="pod-play">▶</span></div>
-          <div class="pod-body">
-            <span class="pod-series">Top Secret DJ · Ep. 5</span>
-            <h3>Come si costruisce un set perfetto da perreo</h3>
-            <p>28 min · I trucchi del mestiere con i DJ residenti di Radio LatinLovers.</p>
-          </div>
-        </article>
-
-        <article class="podcast-card">
-          <div class="pod-cover" style="--c1:#b026ff;--c2:#ff5c8a"><span>📀</span><span class="pod-play">▶</span></div>
-          <div class="pod-body">
-            <span class="pod-series">Historia del Perreo · Ep. 3</span>
-            <h3>Le canzoni che hanno cambiato la pista da ballo</h3>
-            <p>37 min · Da "Gasolina" a "Tití Me Preguntó": i brani simbolo di ogni generazione.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== BLOG / NEWS ===================== -->
-  <section class="section section-alt" id="blog">
-    <div class="container">
-      <div class="section-head">
-        <p class="section-eyebrow">Magazine</p>
-        <h2>Blog &amp; News</h2>
-        <p class="section-lead">Novità, classifiche, interviste e guide dalla scena latina e reggaeton.</p>
-      </div>
-
-      <div class="blog-grid">
-        <article class="blog-card feature">
-          <div class="blog-img" style="--c1:#ff2e74;--c2:#ff7a2f"><span>☀️</span></div>
-          <div class="blog-body">
-            <div class="blog-meta"><span class="cat">Editoriale</span><span class="date">Articolo di esempio</span></div>
-            <h3>Perché il reggaeton è il sound dell'estate</h3>
-            <p>Dal perreo alla bachata: come la musica latina è diventata protagonista delle estati italiane, e perché la community è pronta per una radio tutta sua.</p>
-            <a href="#" class="read-more">Leggi l'articolo →</a>
-          </div>
-        </article>
-
-        <article class="blog-card">
-          <div class="blog-img" style="--c1:#1fe0c4;--c2:#1f8cff"><span>☀️</span></div>
-          <div class="blog-body">
-            <div class="blog-meta"><span class="cat">Classifiche</span><span class="date">Esempio</span></div>
-            <h3>Le canzoni reggaeton perfette per l'estate</h3>
-            <a href="#" class="read-more">Leggi →</a>
-          </div>
-        </article>
-
-        <article class="blog-card">
-          <div class="blog-img" style="--c1:#ff5c8a;--c2:#ff9e2c"><span>💃</span></div>
-          <div class="blog-body">
-            <div class="blog-meta"><span class="cat">Musica</span><span class="date">Esempio</span></div>
-            <h3>Bachata sensual: la guida ai brani perfetti per ballare</h3>
-            <a href="#" class="read-more">Leggi →</a>
-          </div>
-        </article>
-
-        <article class="blog-card">
-          <div class="blog-img" style="--c1:#b026ff;--c2:#ff2e74"><span>🎤</span></div>
-          <div class="blog-body">
-            <div class="blog-meta"><span class="cat">Cultura</span><span class="date">Esempio</span></div>
-            <h3>Come nasce una serata reggaeton perfetta</h3>
-            <a href="#" class="read-more">Leggi →</a>
-          </div>
-        </article>
-
-        <article class="blog-card">
-          <div class="blog-img" style="--c1:#ffcb3d;--c2:#ff5c8a"><span>👑</span></div>
-          <div class="blog-body">
-            <div class="blog-meta"><span class="cat">Artisti</span><span class="date">Esempio</span></div>
-            <h3>Karol G: perché è una delle voci più amate del latino</h3>
-            <a href="#" class="read-more">Leggi →</a>
-          </div>
-        </article>
-
-        <article class="blog-card">
-          <div class="blog-img" style="--c1:#1f8cff;--c2:#1fe0c4"><span>📍</span></div>
-          <div class="blog-body">
-            <div class="blog-meta"><span class="cat">Guide</span><span class="date">Esempio</span></div>
-            <h3>Dove ballare reggaeton in Italia: come orientarsi</h3>
-            <a href="#" class="read-more">Leggi →</a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== EVENTI ===================== -->
-  <section class="section" id="eventi">
-    <div class="container">
-      <div class="section-head">
-        <p class="section-eyebrow">Dal vivo</p>
-        <h2>Eventi &amp; Serate</h2>
-        <p class="section-lead">Le notti LatinLovers nei locali latini d'Italia, con i nostri club partner.</p>
-      </div>
-
-      <p class="events-note" style="background:rgba(255,203,61,.1);border:1px solid rgba(255,203,61,.35);border-radius:14px;padding:14px 18px;margin-bottom:22px;color:var(--gold);font-size:.92rem;">
-        ℹ️ <strong>Esempio di come appariranno i nostri eventi.</strong>
-        Le serate e le partnership con i locali non sono ancora attive: i contenuti qui sotto sono illustrativi.
-      </p>
-
-      <div class="events-list">
-        <article class="event-row">
-          <div class="event-date"><span class="ev-day">21</span><span class="ev-mon">GIU</span></div>
-          <div class="event-info">
-            <h3>LatinLovers Night</h3>
-            <p class="event-place">📍 Locale partner · Milano</p>
-            <p class="event-desc">La serata della radio: DJ residenti, ospiti speciali e perreo fino all'alba.</p>
-          </div>
-          <div class="event-meta"><span class="event-partner">esempio · partnership da confermare</span><a href="#" class="btn btn-ghost btn-sm">Lista &amp; info</a></div>
-        </article>
-
-        <article class="event-row">
-          <div class="event-date"><span class="ev-day">27</span><span class="ev-mon">GIU</span></div>
-          <div class="event-info">
-            <h3>Perreo Sunset Party</h3>
-            <p class="event-place">📍 Locale partner · Rimini</p>
-            <p class="event-desc">Aperitivo latino al tramonto sulla spiaggia, poi reggaeton non-stop sotto le stelle.</p>
-          </div>
-          <div class="event-meta"><span class="event-partner">esempio · partnership da confermare</span><a href="#" class="btn btn-ghost btn-sm">Lista &amp; info</a></div>
-        </article>
-
-        <article class="event-row">
-          <div class="event-date"><span class="ev-day">05</span><span class="ev-mon">LUG</span></div>
-          <div class="event-info">
-            <h3>Noche de Bachata</h3>
-            <p class="event-place">📍 Locale partner · Roma</p>
-            <p class="event-desc">Una notte dedicata alla bachata sensual, con lezione iniziale per tutti i livelli.</p>
-          </div>
-          <div class="event-meta"><span class="event-partner">esempio · partnership da confermare</span><a href="#" class="btn btn-ghost btn-sm">Lista &amp; info</a></div>
-        </article>
-
-        <article class="event-row">
-          <div class="event-date"><span class="ev-day">19</span><span class="ev-mon">LUG</span></div>
-          <div class="event-info">
-            <h3>Reggaetón Festival</h3>
-            <p class="event-place">📍 Spazio eventi partner · Italia</p>
-            <p class="event-desc">Il grande festival open-air della scena latina italiana: tre palchi, decine di artisti.</p>
-          </div>
-          <div class="event-meta"><span class="event-partner">esempio · partnership da confermare</span><a href="#" class="btn btn-ghost btn-sm">Lista &amp; info</a></div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== CHI SIAMO ===================== -->
-  <section class="section section-alt" id="chi-siamo">
-    <div class="container about-grid">
-      <div class="about-copy">
-        <p class="section-eyebrow">Chi siamo</p>
-        <h2>La voce della community latina in Italia</h2>
-        <p>
-          <strong>Radio LatinLovers</strong> nasce per colmare un vuoto: in Italia manca
-          una radio interamente dedicata al reggaeton e alla musica latina, a fronte di una community
-          stimata in circa <strong>500.000 persone</strong> e della crescita del genere tra i giovani.
-        </p>
-        <p>
-          Vogliamo essere un player di nicchia autentico: un ponte tra ascoltatori, artisti e locali,
-          con un palinsesto curato, contenuti social ed eventi dal vivo per far sentire
-          la community a casa, ovunque si trovi. Il progetto è in fase di avvio.
-        </p>
-        <ul class="value-list">
-          <li>🎯 Web radio interamente dedicata al reggaeton e al latino</li>
-          <li>🎯 Un palinsesto curato pensato per la community latina</li>
-          <li>🎯 Diventare un punto di riferimento per eventi e novità della scena</li>
-          <li>🎯 Un ponte tra ascoltatori, artisti e locali partner</li>
-        </ul>
-      </div>
-      <div class="about-stats">
-        <div class="stat-box"><strong>~500k</strong><span>community latino-americana in Italia (stima)</span></div>
-        <div class="stat-box"><strong>16–35</strong><span>la fascia d'età del nostro pubblico</span></div>
-        <div class="stat-box"><strong>24/7</strong><span>diretta non-stop (obiettivo)</span></div>
-        <div class="stat-box"><strong>0€</strong><span>ascolto sempre gratuito</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== SPONSOR / PARTNER ===================== -->
-  <section class="section sponsor-section" id="sponsor">
-    <div class="container sponsor-inner">
-      <div>
-        <p class="section-eyebrow light">Per brand e locali</p>
-        <h2>Diventa partner di Radio LatinLovers</h2>
-        <p class="sponsor-lead">
-          Stiamo aprendo le collaborazioni per il lancio. Spot, menzioni, serate
-          co-brandizzate e visibilità sui canali della radio: ecco cosa potrai offrire,
-          insieme a noi, alla community latina in Italia.
-        </p>
-        <div class="sponsor-cta">
-          <a href="#contatti" class="btn btn-primary btn-lg">Diventa sponsor</a>
-          <a href="#contatti" class="btn btn-ghost btn-lg light">Organizza un evento</a>
-        </div>
-      </div>
-      <div class="sponsor-perks">
-        <div class="perk"><span>📣</span><div><strong>Spot &amp; menzioni</strong><p>La tua attività citata in onda.</p></div></div>
-        <div class="perk"><span>🪩</span><div><strong>Eventi co-branded</strong><p>Serate nel tuo locale con il brand della radio.</p></div></div>
-        <div class="perk"><span>📱</span><div><strong>Presenza social</strong><p>Visibilità sui canali della radio.</p></div></div>
-        <div class="perk"><span>🎯</span><div><strong>Target latino</strong><p>Giovani 16–35 e community latino-americana.</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== COMMUNITY / NEWSLETTER ===================== -->
-  <section class="section community" id="contatti">
-    <div class="container community-inner">
-      <h2>Únete a la familia LatinLovers</h2>
-      <p>Iscriviti per ricevere palinsesto, eventi e novità. Niente spam, solo buena música.</p>
-      <!-- TODO (prima del lancio pubblico): collegare un servizio newsletter reale (es. Mailchimp/Brevo). Ora il form NON salva l'email da nessuna parte: mostra solo un messaggio di conferma. Anche il link "donazione" qui sotto punta a "#". -->
-      <form class="newsletter" id="newsletterForm">
-        <input type="email" placeholder="La tua email" required aria-label="Email" />
-        <button type="submit" class="btn btn-primary">Iscriviti</button>
-      </form>
-      <p class="community-msg" id="newsletterMsg" hidden>🔥 ¡Bienvenido! Sei dentro la familia.</p>
-      <p class="donate-line">Ti piace il progetto? Presto potrai sostenerci con una donazione per aiutarci a far crescere la radio.</p>
-    </div>
-  </section>
-
-  <!-- ===================== FOOTER ===================== -->
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <a href="#top" class="logo">
-          <span class="logo-mark"><span class="logo-dot"></span></span>
-          <span class="logo-text">
-            <span class="logo-radio">RADIO</span>
-            <span class="logo-name">LATIN<span class="logo-accent">LOVERS</span></span>
-          </span>
+      <div class="grid grid-4">
+        <a class="card show-card" href="programmi.html">
+          <div class="card-cover" style="--c1:#3a1416;--c2:#0c0c0d"><span class="wm">Despertar Latino</span></div>
+          <div class="card-body"><h3>Despertar Latino</h3><div class="show-host">Camila Restrepo</div><p>Sveglia con energía e le hit della scena.</p></div>
         </a>
-        <p>La radio della community latina in Italia. 100% reggaeton &amp; música latina · progetto in fase di avvio.</p>
-        <!-- TODO (prima del lancio pubblico): collegare gli account social reali. Link attualmente a "#". -->
-        <div class="social-icons footer-social">
-          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M16.5 3c.3 2.1 1.6 3.7 3.7 4v2.6c-1.4 0-2.7-.4-3.9-1.1v6.2a5.7 5.7 0 1 1-5.7-5.7c.3 0 .6 0 .9.1v2.7a3 3 0 1 0 2.1 2.9V3h2.9Z"/></svg></a>
-          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.5.4 1.1.4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.5.2-1.1.4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.5-.4-1.1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.5-.2 1.1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2Zm0 8.9a3.1 3.1 0 1 0 0 6.2 3.1 3.1 0 0 0 0-6.2Z"/></svg></a>
-          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M23 7.5s-.2-1.6-.9-2.3c-.9-.9-1.8-.9-2.3-1C16.6 4 12 4 12 4s-4.6 0-7.8.2c-.5.1-1.4.1-2.3 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.3C.8 14.5 1 16.4 1 16.4s.2 1.6.9 2.3c.9.9 2 .9 2.5 1 1.8.2 7.6.2 7.6.2s4.6 0 7.8-.2c.5-.1 1.4-.1 2.3-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.3c0-1.9-.2-3.8-.2-3.8ZM9.8 15V9l5 3-5 3Z"/></svg></a>
-          <a href="#" aria-label="Spotify"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm4.6 14.4c-.2.3-.6.4-.9.2-2.4-1.5-5.5-1.8-9.1-1-.4.1-.7-.2-.8-.5-.1-.4.2-.7.5-.8 4-.9 7.4-.5 10.1 1.1.4.2.5.6.2 1Zm1.2-2.7c-.2.4-.7.5-1.1.3-2.8-1.7-7-2.2-10.3-1.2-.4.1-.9-.1-1-.6-.1-.4.1-.9.6-1 3.8-1.1 8.4-.6 11.6 1.4.3.2.5.7.2 1.1Z"/></svg></a>
-        </div>
-      </div>
-
-      <div class="footer-col">
-        <h4>Radio</h4>
-        <a href="#diretta">Diretta</a>
-        <a href="#palinsesto">Palinsesto</a>
-        <a href="#programmi">Programmi</a>
-        <a href="#podcast">Podcast</a>
-      </div>
-      <div class="footer-col">
-        <h4>Esplora</h4>
-        <a href="#blog">Blog &amp; News</a>
-        <a href="#eventi">Eventi</a>
-        <a href="#chi-siamo">Chi siamo</a>
-        <a href="#sponsor">Diventa partner</a>
-      </div>
-      <div class="footer-col">
-        <h4>Contatti</h4>
-        <!-- TODO (prima del lancio pubblico): inserire un indirizzo email reale e attivo. -->
-        <span style="display:block;color:var(--muted-2);font-size:.92rem;padding:5px 0;">Email in attivazione</span>
-        <a href="#sponsor">Sponsor &amp; brand</a>
-        <a href="#eventi">Locali &amp; eventi</a>
-        <a href="#contatti">Newsletter</a>
+        <a class="card show-card" href="programmi.html">
+          <div class="card-cover" style="--c1:#2a1426;--c2:#0c0c0d"><span class="wm">La Hora del Perreo</span></div>
+          <div class="card-body"><h3>La Hora del Perreo</h3><div class="show-host">La Catrina</div><p>Solo perreo, mixato senza pausa.</p></div>
+        </a>
+        <a class="card show-card" href="programmi.html">
+          <div class="card-cover" style="--c1:#1a1a2e;--c2:#0c0c0d"><span class="wm">Top 20 Latino</span></div>
+          <div class="card-body"><h3>Top 20 Latino</h3><div class="show-host">Andrés</div><p>La classifica votata dalla community.</p></div>
+        </a>
+        <a class="card show-card" href="programmi.html">
+          <div class="card-cover" style="--c1:#101a1a;--c2:#0c0c0d"><span class="wm">Noche de Fiesta</span></div>
+          <div class="card-body"><h3>Noche de Fiesta</h3><div class="show-host">DJ Rumba</div><p>Set dal vivo per accendere la notte.</p></div>
+        </a>
       </div>
     </div>
+  </section>
 
-    <div class="container footer-bottom">
-      <p class="licenses">
-        Radio LatinLovers è un progetto in fase di avvio.
-        Licenza <strong>SIAE</strong> / <strong>SCF</strong> in corso di attivazione.
-      </p>
-      <p class="copyright">© 2026 Radio LatinLovers · Tutti i diritti riservati · Hecho con 🔥 para la comunidad latina</p>
-    </div>
-  </footer>
-
-  <audio id="audio" preload="none" crossorigin="anonymous"></audio>
-  <script src="app.js"></script>
+  <script src="assets/app.js"></script>
 </body>
 </html>

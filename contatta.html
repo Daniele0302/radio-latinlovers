@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contatta — Radio LatinLovers</title>
+  <meta name="description" content="Contatta Radio LatinLovers: collaborazioni, sponsor, locali ed eventi della community latina in Italia." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23e10f1b'/%3E%3Ctext x='16' y='23' font-family='Arial' font-size='17' font-weight='bold' fill='white' text-anchor='middle'%3ELL%3C/text%3E%3C/svg%3E" />
+</head>
+<body data-page="contatta">
+
+  <section class="page-head">
+    <div class="container">
+      <div class="crumb">Contatta</div>
+      <h1>Mettiamoci in contatto</h1>
+      <p>Sei un locale, un brand o un artista? Vuoi entrare nel team? Scrivici: stiamo aprendo le collaborazioni per il lancio.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:30px">
+    <div class="container">
+      <div class="grid grid-2">
+        <!-- TODO (prima del lancio): collegare il form a un servizio reale (es. Formspree/Brevo) e inserire un'email attiva. Ora il form non invia nulla. -->
+        <form class="form" data-demo>
+          <input type="text" placeholder="Nome" required aria-label="Nome" />
+          <input type="email" placeholder="Email" required aria-label="Email" />
+          <textarea placeholder="Il tuo messaggio" required aria-label="Messaggio"></textarea>
+          <button type="submit" class="btn btn-red" style="justify-self:start">Invia messaggio</button>
+          <p class="form-msg" hidden>Grazie! Ti risponderemo appena possibile.</p>
+        </form>
+
+        <div class="contact-info">
+          <div class="ci"><span>Email</span><p>In attivazione</p></div>
+          <div class="ci"><span>Sponsor &amp; brand</span><p>Spot, menzioni e serate co-brandizzate per raggiungere la community latina.</p></div>
+          <div class="ci"><span>Locali &amp; eventi</span><p>Organizziamo insieme le notti LatinLovers nel tuo locale.</p></div>
+          <div class="ci"><span>Unisciti al team</span><p>Cerchiamo speaker, DJ e social media. Raccontaci chi sei.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
