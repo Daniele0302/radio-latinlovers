@@ -167,7 +167,6 @@ const heroPlayIcon = document.getElementById("heroPlayIcon");
 const statusEl     = document.getElementById("playerStatus");
 const volume       = document.getElementById("volume");
 const muteBtn      = document.getElementById("muteBtn");
-const listenersEl  = document.getElementById("listenersCount");
 
 let streamIdx = 0;
 let isPlaying = false;
@@ -240,7 +239,7 @@ function togglePlay() {
 audio.addEventListener("playing", () => {
   isPlaying = true;
   setIcons(true);
-  setStatus("🔴 In diretta · 100% Reggaetón");
+  setStatus("▶ In riproduzione · stream reggaeton (anteprima)");
   nextTrack();
 });
 audio.addEventListener("waiting", () => { if (wantPlay) setStatus("Buffering…"); });
@@ -280,18 +279,6 @@ function nextTrack() {
 }
 setTrack(CONFIG.tracks[trackIdx]);
 setInterval(() => { if (isPlaying) nextTrack(); }, 19000);
-
-/* -------------------------------------------------------------------
-   ASCOLTATORI (contatore animato)
-------------------------------------------------------------------- */
-let listeners = 240 + Math.floor(Math.random() * 120);
-function renderListeners() { listenersEl.textContent = listeners.toLocaleString("it-IT"); }
-renderListeners();
-setInterval(() => {
-  const drift = Math.round((Math.random() - 0.45) * 14);
-  listeners = Math.max(120, Math.min(900, listeners + drift + (isPlaying ? 3 : 0)));
-  renderListeners();
-}, 7000);
 
 /* -------------------------------------------------------------------
    NAV MOBILE
