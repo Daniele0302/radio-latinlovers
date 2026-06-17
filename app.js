@@ -327,6 +327,10 @@ document.querySelectorAll(".section-head, .show-card, .podcast-card, .blog-card,
 
 /* -------------------------------------------------------------------
    NEWSLETTER
+   TODO (prima del lancio pubblico): collegare un servizio newsletter reale
+   (Mailchimp, Brevo, ecc.) e i link social/donazione ai canali ufficiali.
+   Allo stato attuale l'email NON viene inviata o salvata da nessuna parte:
+   mostra solo un messaggio di conferma lato pagina.
 ------------------------------------------------------------------- */
 document.getElementById("newsletterForm").addEventListener("submit", e => {
   e.preventDefault();
