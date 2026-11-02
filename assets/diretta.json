@@ -1,0 +1,5 @@
+{
+  "name": "La Diretta",
+  "stream": "https://stream.laut.fm/reggaeton",
+  "nowPlaying": "https://api.laut.fm/station/reggaeton/current_song"
+}

@@ -5,13 +5,33 @@
    ===================================================================== */
 
 /* ---------- stazioni (stream + API metadata abbinata) ----------
-   La API current_song restituisce SEMPRE il brano realmente in onda,
-   quindi il titolo mostrato corrisponde a ciò che si sente.            */
-const STATIONS = [
-  { stream:"https://stream.laut.fm/reggaeton", api:"reggaeton", name:"Reggaetón" },
-  { stream:"https://stream.laut.fm/salsa",     api:"salsa",     name:"Salsa & Latino" },
-  { stream:"https://stream.zeno.fm/qmhf2yd9dm0uv", api:null,    name:"Latino" }
+   La prima è LA DIRETTA: viene letta da assets/diretta.json, lo stesso file
+   che usa l'app iOS. Per cambiare stream (es. il tuo, con speaker e pubblicità)
+   basta modificare quel file: sito e app si aggiornano insieme.
+   Le altre due sono riserve se la Diretta non risponde.
+   "now" è l'API che restituisce il brano realmente in onda.               */
+let STATIONS = [
+  { stream:"https://stream.laut.fm/reggaeton", now:"https://api.laut.fm/station/reggaeton/current_song", name:"La Diretta" },
+  { stream:"https://stream.laut.fm/salsa",     now:"https://api.laut.fm/station/salsa/current_song",     name:"Salsa & Latino" },
+  { stream:"https://stream.zeno.fm/qmhf2yd9dm0uv", now:null, name:"Latino" }
 ];
+
+/* Legge la configurazione condivisa della Diretta (con tempo massimo e riserva) */
+async function loadLiveConfig(){
+  try{
+    const me = document.querySelector('script[src$="app.js"]');
+    const base = me ? me.src.replace(/app\.js.*$/, "") : "assets/";
+    const ctrl = new AbortController();
+    const t = setTimeout(()=>ctrl.abort(), 2500);
+    const r = await fetch(base + "diretta.json", {cache:"no-store", signal:ctrl.signal});
+    clearTimeout(t);
+    if(!r.ok) return;
+    const c = await r.json();
+    if(c && c.stream){
+      STATIONS[0] = { stream:c.stream, now:c.nowPlaying || null, name:c.name || "La Diretta" };
+    }
+  }catch(e){ /* resta la configurazione di riserva */ }
+}
 
 /* ---------- icone SVG ---------- */
 const SVG = {
@@ -177,16 +197,16 @@ function setTrack(title, artist){
 
 async function updateNowPlaying(){
   clearTimeout(npTimer);
-  const api = station().api;
-  if(!api){ // stazione senza metadata
+  const nowUrl = station().now;
+  if(!nowUrl){ // stazione senza metadata
     setTrack("Radio LatinLovers", station().name + " · diretta");
     npTimer = setTimeout(updateNowPlaying, 25000);
     return;
   }
   try{
-    const r = await fetch(`https://api.laut.fm/station/${api}/current_song`,{cache:"no-store"});
+    const r = await fetch(nowUrl,{cache:"no-store"});
     const d = await r.json();
-    const artist = (d.artist && d.artist.name) || "Radio LatinLovers";
+    const artist = ((d.artist && d.artist.name) || "Radio LatinLovers").split("/").map(x=>x.trim()).filter(Boolean).slice(0,3).join(", ");
     const title  = cleanTitle(d.title, (d.artist&&d.artist.name)||"") || "Diretta";
     setTrack(title, artist);
     const ends = parseLautDate(d.ends_at);
@@ -396,8 +416,9 @@ function initScroll(){
 }
 
 /* ---------- init ---------- */
-document.addEventListener("DOMContentLoaded", ()=>{
+document.addEventListener("DOMContentLoaded", async ()=>{
   buildChrome();
+  await loadLiveConfig();
   initPlayer();
   initSlider();
   initSchedule();
