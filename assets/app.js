@@ -35,15 +35,28 @@ const SOCIAL = [
   ["spotify","sp"],["twitter","tw"],["youtube","yt"]
 ];
 
+const CFG = window.LL_CONFIG || {};
+const esc = s => String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+/* Icone social: con URL in config.js diventano link, senza URL restano senza collegamento */
+function socialHtml(){
+  return SOCIAL.map(([name,k])=>{
+    const url=(CFG.social||{})[name];
+    return url
+      ? `<a href="${esc(url)}" target="_blank" rel="noopener" aria-label="${name}">${SVG[k]}</a>`
+      : `<span class="soc" aria-label="${name}">${SVG[k]}</span>`;
+  }).join("");
+}
+
 /* ---------- iniezione header + player (uguale su ogni pagina) ---------- */
 function buildChrome(){
   const page = document.body.dataset.page || "home";
 
   const topMenu = [["Schedule","palinsesto.html"],["Show","programmi.html"],
-                   ["Staff","chi-siamo.html#staff"],["Contatta","contatta.html"]]
+                   ["Staff","chi-siamo.html#staff"],["Collabora","contatta.html#collabora"]]
     .map(([t,h])=>`<a href="${h}">${t}</a>`).join("");
 
-  const social = SOCIAL.map(([name,k])=>`<span class="soc" aria-label="${name}">${SVG[k]}</span>`).join("");
+  const social = socialHtml();
 
   const nav = [["Radio","palinsesto.html","radio"],["Podcast","podcast.html","podcast"],
                ["Blog","blog.html","blog"],["About","chi-siamo.html","about"],
@@ -65,7 +78,6 @@ function buildChrome(){
       </a>
       <nav class="mainnav" id="mainnav">${nav}</nav>
       <div class="mast-right">
-        <button class="icon-btn search" aria-label="Cerca">${SVG.search}</button>
         <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -81,7 +93,7 @@ function buildChrome(){
         <span class="lbl">Live now</span>
         <span class="title" id="npTitle">Radio LatinLovers</span>
         <span class="artist" id="npArtist">Diretta reggaeton &amp; música latina</span>
-        <span class="sub">Ascolta la diretta di Radio LatinLovers</span>
+        <span class="sub" id="npSub">Ascolta la diretta di Radio LatinLovers</span>
       </div>
       <div class="player-vol">
         <button class="vbtn" id="muteBtn" aria-label="Volume">${SVG.vol}</button>
@@ -97,20 +109,22 @@ function buildChrome(){
         <div class="footer-brand">
           <a href="index.html" class="logo"><span class="l1">radio</span><span class="l2">latin<b>lovers</b></span></a>
           <p>La radio della community latina in Italia. Reggaeton e música latina. Progetto in fase di lancio.</p>
-          <div class="footer-social">${SOCIAL.map(([n,k])=>`<span class="soc" aria-label="${n}">${SVG[k]}</span>`).join("")}</div>
+          <div class="footer-social">${socialHtml()}</div>
         </div>
         <div class="footer-col"><h4>Radio</h4><a href="palinsesto.html">Palinsesto</a><a href="programmi.html">Programmi</a><a href="podcast.html">Podcast</a></div>
         <div class="footer-col"><h4>Esplora</h4><a href="blog.html">Blog</a><a href="chi-siamo.html">Chi siamo</a><a href="chi-siamo.html#staff">Staff</a></div>
-        <div class="footer-col"><h4>Contatti</h4><a href="contatta.html">Contatta</a><a href="contatta.html">Sponsor &amp; locali</a><a href="contatta.html">Newsletter</a></div>
+        <div class="footer-col"><h4>Contatti</h4>${CFG.email?`<a href="mailto:${esc(CFG.email)}">${esc(CFG.email)}</a>`:""}<a href="contatta.html">Contatta</a><a href="contatta.html#collabora">Collabora con noi</a><a href="privacy.html">Privacy</a></div>
       </div>
       <div class="footer-bottom">
-        <p class="disclaimer">Progetto in fase di lancio · contenuti dimostrativi. Licenza SIAE/SCF in corso di attivazione.</p>
+        <p class="disclaimer">Progetto in fase di lancio: palinsesto, programmi, podcast e staff sono anteprime dei contenuti in arrivo. I flussi audio sono forniti da laut.fm e dalle rispettive emittenti, a cui spettano licenze e diritti sui brani.</p>
         <p>© 2026 Radio LatinLovers · Tutti i diritti riservati</p>
       </div>
     </div>
   </footer>`;
 
-  document.body.insertAdjacentHTML("afterbegin", header);
+  document.body.insertAdjacentHTML("afterbegin", `<a class="skip" href="#main">Vai al contenuto</a>` + header);
+  const firstSection = document.querySelector("body > section");
+  if(firstSection){ firstSection.id = firstSection.id || "main"; firstSection.setAttribute("tabindex","-1"); }
   document.body.insertAdjacentHTML("beforeend", footer + player);
 
   // menu mobile
@@ -156,6 +170,9 @@ function setTrack(title, artist){
   const a = document.getElementById("npArtist");
   if(t) t.textContent = title;
   if(a) a.textContent = artist;
+  if("mediaSession" in navigator){
+    navigator.mediaSession.metadata = new MediaMetadata({title, artist, album:"Radio LatinLovers"});
+  }
 }
 
 async function updateNowPlaying(){
@@ -194,7 +211,13 @@ function startPlay(){
   if(pl) pl.classList.add("loading");
   audio.src = station().stream + (station().stream.includes("?")?"&":"?") + "cb=" + Date.now();
   audio.volume = (document.getElementById("volume").value||80)/100;
-  audio.play().catch(()=>{});
+  const p = audio.play();
+  if(p && p.catch) p.catch(()=>{
+    // il browser ha bloccato l'avvio: serve un tocco su Play
+    wantPlay=false; isPlaying=false; setPlayingUI(false);
+    if(pl) pl.classList.remove("loading");
+    const sub=document.getElementById("npSub"); if(sub) sub.textContent="Premi play per ascoltare";
+  });
 }
 function stopPlay(){
   wantPlay = false; isPlaying = false;
@@ -213,7 +236,10 @@ audio.addEventListener("playing", ()=>{
 audio.addEventListener("error", ()=>{
   if(!wantPlay) return;
   if(stationIdx < STATIONS.length-1){ stationIdx++; updateNowPlaying(); startPlay(); }
-  else { stopPlay(); }
+  else {
+    stopPlay();
+    const sub=document.getElementById("npSub"); if(sub) sub.textContent="Connessione non riuscita. Riprova tra poco.";
+  }
 });
 
 function initPlayer(){
@@ -231,6 +257,15 @@ function initPlayer(){
   mute.addEventListener("click", ()=>{
     audio.muted = !audio.muted;
     mute.innerHTML = audio.muted ? SVG.mute : SVG.vol;
+  });
+  if("mediaSession" in navigator){
+    navigator.mediaSession.setActionHandler("play", ()=>{ if(!isPlaying && !wantPlay) startPlay(); });
+    navigator.mediaSession.setActionHandler("pause", ()=>{ if(isPlaying || wantPlay) stopPlay(); });
+  }
+  // pulsanti "Ascolta" nelle pagine
+  document.addEventListener("click", e=>{
+    const b = e.target.closest("[data-play]");
+    if(b && !isPlaying && !wantPlay) startPlay();
   });
   // mostra subito il brano in onda, anche da fermo
   updateNowPlaying();
@@ -335,11 +370,19 @@ function initSchedule(){
    FORM (newsletter / contatti) — solo feedback, niente invio reale
    =================================================================== */
 function initForms(){
-  document.querySelectorAll("form[data-demo]").forEach(f=>{
+  document.querySelectorAll("form[data-mailto]").forEach(f=>{
+    const msg = f.querySelector(".form-msg");
     f.addEventListener("submit", e=>{
-      e.preventDefault(); f.reset();
-      const msg = f.querySelector(".form-msg");
-      if(msg) msg.hidden = false;
+      e.preventDefault();
+      if(!CFG.email){
+        if(msg){ msg.textContent="L'indirizzo email di contatto sarà pubblicato a breve. Riprova più tardi."; msg.hidden=false; }
+        return;
+      }
+      const d = new FormData(f);
+      const subject = `${d.get("ruolo")||"Contatto"} · ${d.get("nome")||""}`.trim();
+      const body = `${d.get("messaggio")||""}\n\n— ${d.get("nome")||""}\n${d.get("email")||""}`;
+      window.location.href = `mailto:${CFG.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      if(msg){ msg.textContent="Si è aperta la tua app di posta con il messaggio pronto: premi invia."; msg.hidden=false; }
     });
   });
 }

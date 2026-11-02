@@ -1,0 +1,17 @@
+{
+  "name": "Radio LatinLovers",
+  "short_name": "LatinLovers",
+  "description": "Musica e cultura latina in Italia. Reggaeton, bachata, salsa e molto altro, in diretta.",
+  "start_url": "../index.html",
+  "scope": "../",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0c0c0d",
+  "theme_color": "#e10f1b",
+  "lang": "it",
+  "icons": [
+    { "src": "img/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "img/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "img/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

@@ -3,46 +3,84 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contatta — Radio LatinLovers</title>
-  <meta name="description" content="Contatta Radio LatinLovers: collaborazioni, sponsor, locali ed eventi della community latina in Italia." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <title>Contatta e collabora — Radio LatinLovers</title>
+  <meta name="description" content="Cerchiamo collaboratori e soci: speaker, DJ, locali, brand e partner di progetto. Scrivi a Radio LatinLovers." />
+  <link rel="canonical" href="https://daniele0302.github.io/radio-latinlovers/contatta.html" />
+  <meta name="theme-color" content="#e10f1b" />
+  <meta property="og:site_name" content="Radio LatinLovers" />
+  <meta property="og:locale" content="it_IT" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Contatta e collabora — Radio LatinLovers" />
+  <meta property="og:description" content="Cerchiamo collaboratori e soci: speaker, DJ, locali, brand e partner di progetto. Scrivi a Radio LatinLovers." />
+  <meta property="og:url" content="https://daniele0302.github.io/radio-latinlovers/contatta.html" />
+  <meta property="og:image" content="https://daniele0302.github.io/radio-latinlovers/assets/img/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png" />
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
+  <link rel="manifest" href="assets/manifest.webmanifest" />
+  <link rel="preload" href="assets/fonts/oswald-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="assets/fonts.css" />
   <link rel="stylesheet" href="assets/styles.css" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23e10f1b'/%3E%3Ctext x='16' y='23' font-family='Arial' font-size='17' font-weight='bold' fill='white' text-anchor='middle'%3ELL%3C/text%3E%3C/svg%3E" />
 </head>
 <body data-page="contatta">
 
   <section class="page-head">
     <div class="container">
       <div class="crumb">Contatta</div>
-      <h1>Mettiamoci in contatto</h1>
-      <p>Sei un locale, un brand o un artista? Vuoi entrare nel team? Scrivici: stiamo aprendo le collaborazioni per il lancio.</p>
+      <h1>Costruiamo qualcosa insieme</h1>
+      <p>Radio LatinLovers è un progetto in costruzione e cerca persone che vivono la musica latina ogni giorno. Raccontaci chi sei e che idea hai.</p>
     </div>
   </section>
 
-  <section class="section" style="padding-top:30px">
+  <section class="section" id="collabora" style="padding-top:30px">
     <div class="container">
+      <div class="section-head"><h2>Chi cerchiamo</h2></div>
+      <div class="roles">
+        <div class="role"><span class="tag">Soci e partner</span><h3>Chi vuole costruire il progetto</h3><p>Persone e realtà che vogliono contribuire con competenze, rete o risorse e crescere insieme alla radio.</p></div>
+        <div class="role"><span class="tag">Programmi</span><h3>Speaker e DJ</h3><p>Hai un format, un set o una voce? Stiamo definendo i programmi della radio.</p></div>
+        <div class="role"><span class="tag">Contenuti</span><h3>Social e redazione</h3><p>Video, grafica, scrittura: chi sa raccontare la cultura latina online.</p></div>
+        <div class="role"><span class="tag">Eventi</span><h3>Locali e organizzatori</h3><p>Serate e collaborazioni dal vivo nei locali latini d'Italia.</p></div>
+        <div class="role"><span class="tag">Brand</span><h3>Sponsor e partner commerciali</h3><p>Spot, menzioni e iniziative insieme per raggiungere chi ascolta musica latina.</p></div>
+        <div class="role"><span class="tag">Community</span><h3>Artisti e associazioni</h3><p>Realtà della comunità latino-americana in Italia con cui costruire contenuti.</p></div>
+      </div>
+
       <div class="grid grid-2">
-        <!-- TODO (prima del lancio): collegare il form a un servizio reale (es. Formspree/Brevo) e inserire un'email attiva. Ora il form non invia nulla. -->
-        <form class="form" data-demo>
-          <input type="text" placeholder="Nome" required aria-label="Nome" />
-          <input type="email" placeholder="Email" required aria-label="Email" />
-          <textarea placeholder="Il tuo messaggio" required aria-label="Messaggio"></textarea>
-          <button type="submit" class="btn btn-red" style="justify-self:start">Invia messaggio</button>
-          <p class="form-msg" hidden>Grazie! Ti risponderemo appena possibile.</p>
+        <form class="form" data-mailto id="contact-form">
+          <label for="f-nome">Nome</label>
+          <input id="f-nome" name="nome" type="text" required autocomplete="name" />
+          <label for="f-email">La tua email</label>
+          <input id="f-email" name="email" type="email" required autocomplete="email" />
+          <label for="f-ruolo">Come vuoi collaborare</label>
+          <select id="f-ruolo" name="ruolo">
+            <option>Soci e partner di progetto</option>
+            <option>Speaker o DJ</option>
+            <option>Social e contenuti</option>
+            <option>Locale o organizzatore di eventi</option>
+            <option>Brand o sponsor</option>
+            <option>Altro</option>
+          </select>
+          <label for="f-msg">Messaggio</label>
+          <textarea id="f-msg" name="messaggio" required></textarea>
+          <button type="submit" class="btn btn-red" style="justify-self:start">Prepara il messaggio</button>
+          <p class="form-msg" hidden aria-live="polite"></p>
+          <p class="muted" style="font-size:.8rem">Il modulo apre la tua app di posta con il messaggio già pronto: nulla viene salvato sul sito. <a href="privacy.html" style="color:var(--red)">Privacy</a>.</p>
         </form>
 
         <div class="contact-info">
-          <div class="ci"><span>Email</span><p>In attivazione</p></div>
-          <div class="ci"><span>Sponsor &amp; brand</span><p>Spot, menzioni e serate co-brandizzate per raggiungere la community latina.</p></div>
-          <div class="ci"><span>Locali &amp; eventi</span><p>Organizziamo insieme le notti LatinLovers nel tuo locale.</p></div>
-          <div class="ci"><span>Unisciti al team</span><p>Cerchiamo speaker, DJ e social media. Raccontaci chi sei.</p></div>
+          <div class="ci"><span>Email</span><p id="mailLine">In attivazione</p></div>
+          <div class="ci"><span>Una chiamata, prima di tutto</span><p>Se preferisci, possiamo fissare una chiamata di 20 minuti per raccontarti il progetto e capire come collaborare.</p></div>
+          <div class="ci"><span>Tempi di risposta</span><p>Rispondiamo ai messaggi appena possibile, di solito entro pochi giorni.</p></div>
         </div>
       </div>
     </div>
   </section>
 
+  <script src="assets/config.js"></script>
+  <script>
+    (function(){var c=window.LL_CONFIG||{};var el=document.getElementById("mailLine");
+      if(el&&c.email){el.innerHTML='<a href="mailto:'+c.email+'">'+c.email+'</a>';}})();
+  </script>
   <script src="assets/app.js"></script>
 </body>
 </html>

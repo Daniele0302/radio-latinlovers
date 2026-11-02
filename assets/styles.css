@@ -323,3 +323,54 @@ h1,h2,h3,h4{font-family:var(--f-head);font-weight:600;line-height:1.05;text-tran
 .topbar-social .soc{color:#fff;opacity:.9;display:grid;place-items:center;cursor:default}
 .topbar-social .soc svg{width:16px;height:16px;display:block}
 .footer-social .soc{color:var(--grey);display:grid;place-items:center;cursor:default}
+
+/* =====================================================================
+   LANCIO — accessibilità, articoli, moduli, ruoli
+   ===================================================================== */
+.skip{position:absolute;left:-999px;top:0;z-index:200;background:var(--red);color:#fff;padding:10px 16px;font-family:var(--f-head);text-transform:uppercase;letter-spacing:.06em}
+.skip:focus{left:8px;top:8px}
+:focus-visible{outline:2px solid var(--yellow);outline-offset:3px}
+.muted{color:var(--grey)}
+.topbar-social a{color:#fff}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+
+/* articoli */
+.article-head{padding:54px 0 8px}
+.article-head .tags{display:flex;gap:7px;margin-bottom:18px}
+.article-head .tags span{font-family:var(--f-head);font-weight:600;text-transform:uppercase;letter-spacing:.06em;font-size:.66rem;background:var(--yellow);color:#1a1a1a;padding:5px 10px}
+.article-head h1{font-size:clamp(2rem,4.6vw,3.4rem);max-width:900px}
+.article-head .byline{color:var(--grey);font-size:.88rem;margin-top:16px}
+.article-body{max-width:var(--maxw);padding-top:26px;padding-bottom:70px}
+.article-body > *{max-width:740px}
+.article-body p{color:#dcdce0;font-size:1.08rem;line-height:1.75;margin-bottom:20px}
+.article-body h2{font-size:1.5rem;margin:34px 0 14px}
+.article-body .listen{border-left:3px solid var(--red);padding:6px 0 6px 18px;margin:30px 0}
+.article-body .listen button{margin-top:12px}
+.article-more{border-top:1px solid var(--line);padding-top:30px}
+
+/* moduli */
+.form select{background:var(--surface);border:1px solid var(--line);color:#fff;font-family:var(--f-body);font-size:.96rem;padding:14px 16px}
+.form select:focus{outline:none;border-color:var(--red)}
+.form label{font-family:var(--f-head);text-transform:uppercase;letter-spacing:.08em;font-size:.72rem;color:var(--grey)}
+
+/* ruoli cercati */
+.roles{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:46px}
+.role{background:var(--surface);border:1px solid var(--line);padding:24px 22px}
+.role h3{font-size:1.2rem;margin-bottom:8px}
+.role p{color:var(--grey);font-size:.92rem}
+.role .tag{display:inline-block;font-family:var(--f-head);text-transform:uppercase;letter-spacing:.07em;font-size:.64rem;color:var(--red);margin-bottom:10px}
+
+/* privacy / testo legale */
+.legal{max-width:760px}
+.legal h2{font-size:1.35rem;margin:34px 0 12px}
+.legal p,.legal li{color:#d3d3d7;font-size:1rem;line-height:1.7;margin-bottom:12px}
+.legal ul{padding-left:20px}
+.legal .warn{border:1px solid var(--yellow);color:var(--yellow);padding:14px 16px;margin:20px 0;font-size:.92rem}
+
+/* podcast: episodi in arrivo */
+.soon{position:absolute;top:12px;right:12px;font-family:var(--f-head);text-transform:uppercase;letter-spacing:.06em;font-size:.64rem;background:var(--yellow);color:#1a1a1a;padding:5px 9px}
+
+@media (max-width:1024px){ .roles{grid-template-columns:1fr} }
