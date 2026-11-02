@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Radio LatinLovers — La radio della community latina in Italia</title>
-  <meta name="description" content="Radio LatinLovers: web radio dedicata al reggaeton e alla musica latina per la community latina in Italia. Progetto in fase di lancio." />
+  <title>Radio LatinLovers — Musica e cultura latina in Italia</title>
+  <meta name="description" content="Radio LatinLovers: sei canali di musica latina in diretta (reggaeton, bachata, salsa, cumbia, merengue, latin pop) e un blog sulla cultura latina." />
+  <meta property="og:title" content="Radio LatinLovers" />
+  <meta property="og:description" content="Musica e cultura latina in Italia. Sei canali in diretta e un blog." />
+  <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -13,50 +16,50 @@
 </head>
 <body data-page="home">
 
-  <!-- ===================== HERO SLIDER ===================== -->
+  <!-- HERO SLIDER -->
   <section class="hero">
     <div class="hero-track">
       <div class="hero-slide active" style="--s1:#3a1416;--s2:#0c0c0d">
         <div class="bg"></div>
-        <div class="watermark">PERREO</div>
+        <div class="watermark">LIVE</div>
         <div class="hero-content">
-          <div class="hero-tags"><span>Blog</span><span>Featured</span><span>Highlights</span></div>
-          <h1>Il reggaeton è il sound dell'estate</h1>
-          <p>Dal perreo alla bachata: come la musica latina è diventata protagonista delle estati italiane, e perché la community è pronta per una radio tutta sua.</p>
-          <a href="blog.html" class="btn btn-red">Leggi l'articolo</a>
+          <div class="hero-tags"><span>Radio</span><span>In diretta</span></div>
+          <h1>Sei canali di musica latina, sempre in diretta</h1>
+          <p>Reggaeton, bachata, salsa, cumbia, merengue e latin pop. Premi play e scegli il canale che ti accompagna.</p>
+          <button class="btn btn-red" data-play type="button">Ascolta ora</button>
         </div>
       </div>
 
       <div class="hero-slide" style="--s1:#1a1a2e;--s2:#0c0c0d">
         <div class="bg"></div>
-        <div class="watermark">RITMO</div>
+        <div class="watermark">DEMBOW</div>
         <div class="hero-content">
-          <div class="hero-tags"><span>Programmi</span><span>Live</span></div>
-          <h1>La Hora del Perreo, tutti i giorni</h1>
-          <p>Il programma più caliente del palinsesto: solo i beat del momento, mixati senza pausa. Scopri quando va in onda e chi lo conduce.</p>
-          <a href="palinsesto.html" class="btn btn-red">Vai al palinsesto</a>
+          <div class="hero-tags"><span>Blog</span><span>Storia</span></div>
+          <h1>Dembow: il ritmo da cui nasce il reggaeton</h1>
+          <p>Da un brano giamaicano del 1990 alle piste di tutto il mondo: il percorso di un battito che ha attraversato tre isole.</p>
+          <a href="dembow-origini-reggaeton.html" class="btn btn-red">Leggi l'articolo</a>
         </div>
       </div>
 
       <div class="hero-slide" style="--s1:#2a1a10;--s2:#0c0c0d">
         <div class="bg"></div>
-        <div class="watermark">LATINO</div>
+        <div class="watermark">BACHATA</div>
         <div class="hero-content">
-          <div class="hero-tags"><span>Classifica</span><span>Community</span></div>
-          <h1>Top 20 Latino, votata da voi</h1>
-          <p>Ogni settimana la classifica delle hit più suonate, decisa dalla community sui social. La tua canzone può arrivare in cima.</p>
-          <a href="programmi.html" class="btn btn-red">Scopri i programmi</a>
+          <div class="hero-tags"><span>Blog</span><span>Cultura</span></div>
+          <h1>Bachata: da musica di quartiere a patrimonio UNESCO</h1>
+          <p>Per decenni è stata snobbata. Nel 2019 la bachata dominicana è entrata nel patrimonio culturale immateriale dell'umanità.</p>
+          <a href="bachata-patrimonio-unesco.html" class="btn btn-red">Leggi l'articolo</a>
         </div>
       </div>
 
       <div class="hero-slide" style="--s1:#101a1a;--s2:#0c0c0d">
         <div class="bg"></div>
-        <div class="watermark">FIESTA</div>
+        <div class="watermark">JUNTOS</div>
         <div class="hero-content">
-          <div class="hero-tags"><span>Eventi</span><span>In arrivo</span></div>
-          <h1>Le notti LatinLovers arrivano nei locali</h1>
-          <p>Stiamo costruendo le serate della radio, in collaborazione con i locali latini d'Italia. Resta sintonizzato per le prime date.</p>
-          <a href="contatta.html" class="btn btn-red">Diventa partner</a>
+          <div class="hero-tags"><span>Collabora</span></div>
+          <h1>Sei un DJ, un locale o un brand?</h1>
+          <p>Radio LatinLovers cresce con chi vive la musica latina ogni giorno. Se vuoi costruire qualcosa insieme, scrivici.</p>
+          <a href="contatta.html" class="btn btn-red">Contattaci</a>
         </div>
       </div>
     </div>
@@ -66,7 +69,39 @@
     <div class="hero-dots"></div>
   </section>
 
-  <!-- ===================== DAL BLOG ===================== -->
+  <!-- IN ONDA ORA -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>In onda ora</h2>
+        <a href="radio.html#ultimi" class="more">Tutta la cronologia</a>
+      </div>
+      <div class="onair-grid">
+        <div class="np-big">
+          <span class="lbl">Canale · <span data-np-channel>Reggaeton</span></span>
+          <div class="np-title" data-np-title>Caricamento…</div>
+          <div class="np-artist" data-np-artist></div>
+          <button class="btn btn-red" data-play type="button">Ascolta in diretta</button>
+        </div>
+        <div>
+          <div class="tracklist" id="recent"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CANALI -->
+  <section class="section alt">
+    <div class="container">
+      <div class="section-head">
+        <h2>Canali</h2>
+        <a href="radio.html#canali" class="more">Vai alla radio</a>
+      </div>
+      <div class="ch-grid" id="channels"></div>
+    </div>
+  </section>
+
+  <!-- DAL BLOG -->
   <section class="section">
     <div class="container">
       <div class="section-head">
@@ -74,50 +109,23 @@
         <a href="blog.html" class="more">Tutti gli articoli</a>
       </div>
       <div class="grid grid-3">
-        <a class="card" href="blog.html">
-          <div class="card-cover" style="--c1:#3a1416;--c2:#0c0c0d"><span class="cat">Editoriale</span><span class="wm">Estate Latina</span></div>
-          <div class="card-body"><div class="meta">Editoriale</div><h3>Il reggaeton è il sound dell'estate</h3><p>Come la musica latina è diventata protagonista delle estati italiane.</p></div>
+        <a class="card" href="dembow-origini-reggaeton.html">
+          <div class="card-cover" style="--c1:#1a1a2e;--c2:#0c0c0d"><span class="cat">Storia</span><span class="wm">Dembow</span></div>
+          <div class="card-body"><div class="meta">2 novembre 2026</div><h3>Dembow: il ritmo da cui nasce il reggaeton</h3><p>Dalla Giamaica a Panama e Porto Rico: l'origine di un battito.</p></div>
         </a>
-        <a class="card" href="blog.html">
-          <div class="card-cover" style="--c1:#1a1a2e;--c2:#0c0c0d"><span class="cat">Classifiche</span><span class="wm">Top Estate</span></div>
-          <div class="card-body"><div class="meta">Classifiche</div><h3>Le canzoni reggaeton perfette per l'estate</h3><p>La nostra selezione dei brani che faranno ballare la stagione.</p></div>
+        <a class="card" href="bachata-patrimonio-unesco.html">
+          <div class="card-cover" style="--c1:#2a1a10;--c2:#0c0c0d"><span class="cat">Cultura</span><span class="wm">Bachata</span></div>
+          <div class="card-body"><div class="meta">2 novembre 2026</div><h3>Bachata: da musica di quartiere a patrimonio UNESCO</h3><p>La storia di un genere a lungo sottovalutato.</p></div>
         </a>
-        <a class="card" href="blog.html">
-          <div class="card-cover" style="--c1:#2a1a10;--c2:#0c0c0d"><span class="cat">Musica</span><span class="wm">Bachata</span></div>
-          <div class="card-body"><div class="meta">Musica</div><h3>Bachata sensual: la guida ai brani per ballare</h3><p>Dai grandi classici alle hit di oggi, per ogni serata.</p></div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== PROGRAMMI ===================== -->
-  <section class="section alt">
-    <div class="container">
-      <div class="section-head">
-        <h2>Programmi</h2>
-        <a href="programmi.html" class="more">Tutti i programmi</a>
-      </div>
-      <div class="grid grid-4">
-        <a class="card show-card" href="programmi.html">
-          <div class="card-cover" style="--c1:#3a1416;--c2:#0c0c0d"><span class="wm">Despertar Latino</span></div>
-          <div class="card-body"><h3>Despertar Latino</h3><div class="show-host">Camila Restrepo</div><p>Sveglia con energía e le hit della scena.</p></div>
-        </a>
-        <a class="card show-card" href="programmi.html">
-          <div class="card-cover" style="--c1:#2a1426;--c2:#0c0c0d"><span class="wm">La Hora del Perreo</span></div>
-          <div class="card-body"><h3>La Hora del Perreo</h3><div class="show-host">La Catrina</div><p>Solo perreo, mixato senza pausa.</p></div>
-        </a>
-        <a class="card show-card" href="programmi.html">
-          <div class="card-cover" style="--c1:#1a1a2e;--c2:#0c0c0d"><span class="wm">Top 20 Latino</span></div>
-          <div class="card-body"><h3>Top 20 Latino</h3><div class="show-host">Andrés</div><p>La classifica votata dalla community.</p></div>
-        </a>
-        <a class="card show-card" href="programmi.html">
-          <div class="card-cover" style="--c1:#101a1a;--c2:#0c0c0d"><span class="wm">Noche de Fiesta</span></div>
-          <div class="card-body"><h3>Noche de Fiesta</h3><div class="show-host">DJ Rumba</div><p>Set dal vivo per accendere la notte.</p></div>
+        <a class="card" href="cinque-nomi-per-capire-il-reggaeton.html">
+          <div class="card-cover" style="--c1:#3a1416;--c2:#0c0c0d"><span class="cat">Artisti</span><span class="wm">Cinque nomi</span></div>
+          <div class="card-body"><div class="meta">2 novembre 2026</div><h3>Cinque nomi per capire il reggaeton</h3><p>Pionieri e protagonisti da cui partire per un ascolto consapevole.</p></div>
         </a>
       </div>
     </div>
   </section>
 
+  <script src="assets/config.js"></script>
   <script src="assets/app.js"></script>
 </body>
 </html>
